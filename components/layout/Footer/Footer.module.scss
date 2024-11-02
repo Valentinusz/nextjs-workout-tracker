@@ -1,0 +1,22 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12.5%;
+}
+
+.appLogo {
+  margin-right: auto;
+}
+
+.footerLink {
+  border-radius: var(--mantine-radius-sm);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  color: var(--mantine-color-dimmed);
+  font-size: var(--mantine-font-size-sm);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

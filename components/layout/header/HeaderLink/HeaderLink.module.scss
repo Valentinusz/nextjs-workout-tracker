@@ -1,0 +1,12 @@
+.headerLink {
+  border-radius: var(--mantine-radius-sm);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
+  font-size: var(--mantine-font-size-md);
+  font-weight: 500;
+
+  &:hover {
+    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  }
+}
