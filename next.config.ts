@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
+import path from "node:path";
 
 export default {
-  /* config options here */
+  sassOptions: {
+    implementation: "sass-embedded",
+  },
 } satisfies NextConfig;

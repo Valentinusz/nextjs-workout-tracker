@@ -178,7 +178,7 @@ export default {
       },
     },
     extend: {
-      borderColor: { DEFAULT: 'var(--mantine-color-gray-4)' },
+      borderColor: { DEFAULT: 'var(--mantine-color-default-border)' },
       borderRadius: {
         xs: 'var(--mantine-radius-xs)',
         sm: 'var(--mantine-radius-sm)',
