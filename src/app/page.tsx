@@ -1,7 +1,7 @@
 import {Card, Paper, Title} from "@mantine/core";
 import {MonthlyProgress} from "@/components/MonthlyProgress/MonthlyProgress";
 
-export default function Home() {
+export default async function Home() {
     return (
         <div className="flex">
             <Paper withBorder className="p-lg">

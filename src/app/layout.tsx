@@ -8,7 +8,7 @@ import { AppShell } from "@/components/layout/AppShell/AppShell";
 import { Footer } from "@/components/layout/Footer/Footer";
 import { ModalsProvider } from "@mantine/modals";
 import {Notifications} from "@mantine/notifications";
-import {Header} from "@/components/layout/Header/Header";
+import {HeaderContent} from "@/components/layout/HeaderContent/HeaderContent";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps) {
       <body>
         <MantineProvider>
           <ModalsProvider>
-            <AppShell footer={<Footer />} headerContent={<Header/>}>{children}</AppShell>
+            <AppShell footer={<Footer />} headerContent={<HeaderContent/>}>{children}</AppShell>
             <Notifications/>
           </ModalsProvider>
         </MantineProvider>

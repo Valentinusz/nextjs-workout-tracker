@@ -11,7 +11,7 @@ import {
 import { PropsWithChildren, ReactNode } from "react";
 import { useDisclosure } from "@mantine/hooks";
 import { Footer } from "@/components/layout/Footer/Footer";
-import { Header } from "@/components/layout/Header/Header";
+import { HeaderContent } from "@/components/layout/HeaderContent/HeaderContent";
 
 export interface AppShellProps extends PropsWithChildren {
   footer: ReactNode;
@@ -39,10 +39,10 @@ export function AppShell({ children, footer, headerContent }: AppShellProps) {
         height: 60,
       }}
     >
-      <Header>
-        <Burger onClick={toggle} />
+      <AppShellHeader className="flex items-center px-md gap-sm">
+        <Burger onClick={toggle} opened={open} />
         {headerContent}
-      </Header>
+      </AppShellHeader>
       <AppShellNavbar></AppShellNavbar>
       <AppShellMain>{children}</AppShellMain>
       {footer}
