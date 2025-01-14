@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate-api": "openapi-generator-cli generate --input-spec=\"openapi/workout-tracker-spec.json\" --output=\"generated\" --generator-name=\"typescript-axios\""
+    "generate-api": "openapi-generator-cli generate --input-spec=\"openapi/workout-tracker-spec.json\" --output=\"generated/workout-tracker-api\" --generator-name=\"typescript-axios\""
   },
   "packageManager": "yarn@1.22.22",
   "dependencies": {
