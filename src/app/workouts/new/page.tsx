@@ -1,10 +1,16 @@
-import {Button} from "@mantine/core";
+import {Button, Title} from "@mantine/core";
 import {createWorkout} from "@/app/workouts/new/createWorkout";
+import {DateInput, DatePicker} from "@mantine/dates";
 
 export default function Page() {
     return (
-        <form action={createWorkout}>
-            <Button type="submit">Create workout</Button>
-        </form>
+        <>
+            <Title>New workout</Title>
+            <form action={createWorkout} className="flex flex-col gap-md">
+                <DateInput/>
+                <Button type="submit">Create workout</Button>
+            </form>
+        </>
+
     )
 }

@@ -1,0 +1,130 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "WorkoutTracker API",
+        "description": "API for tracking workouts",
+        "contact": {
+            "name": "Bálint Boda",
+            "email": "bodabalint04@gmail.com"
+        },
+        "version": "v1"
+    },
+    "paths": {
+        "/users/{userId}/workouts": {
+            "get": {
+                "tags": [
+                    "UserWorkout"
+                ],
+                "summary": "Get basic data of the user's workouts from the given time period",
+                "operationId": "GetWorkoutsOfUser",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "ID of the user",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "100"
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "description": "Start date of the period to get workouts from (inclusive)",
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "description": "End date of the period to get workouts from (inclusive)",
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/WorkoutDto"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/WorkoutDto"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/WorkoutDto"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/workouts": {
+            "post": {
+                "tags": [
+                    "Workout"
+                ],
+                "summary": "Creates a new workout",
+                "operationId": "CreateWorkout",
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateWorkoutRequestDto"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateWorkoutRequestDto"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateWorkoutRequestDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CreateWorkoutRequestDto": {
+                "type": "object",
+                "additionalProperties": false
+            },
+            "WorkoutDto": {
+                "type": "object",
+                "additionalProperties": false
+            }
+        }
+    }
+}
