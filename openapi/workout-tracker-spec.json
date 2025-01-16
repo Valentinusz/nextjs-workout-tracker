@@ -80,6 +80,47 @@
                 }
             }
         },
+        "/workouts/{workoutId}": {
+            "get": {
+                "tags": [
+                    "Workout"
+                ],
+                "operationId": "GetWorkout",
+                "parameters": [
+                    {
+                        "name": "workoutId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WorkoutDto"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WorkoutDto"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WorkoutDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/workouts": {
             "post": {
                 "tags": [
@@ -109,7 +150,24 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Created"
+                        "description": "Created",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateWorkoutResponseDto"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateWorkoutResponseDto"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateWorkoutResponseDto"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -121,8 +179,24 @@
                 "type": "object",
                 "additionalProperties": false
             },
+            "CreateWorkoutResponseDto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                },
+                "additionalProperties": false
+            },
             "WorkoutDto": {
                 "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                },
                 "additionalProperties": false
             }
         }

@@ -1,13 +1,13 @@
 'use server'
 
-import {workoutTrackerApi} from "@/api/workout-tracker-api";
 import {redirect} from "next/navigation";
 import {Routes} from "@/routing/routes";
+import {createWorkout} from "@/api/workout-tracker-api";
 
-export async function createWorkout(): Promise<void> {
+export async function createWorkoutAction(): Promise<void> {
     console.log("asd")
 
-    await workoutTrackerApi.createWorkout()
+    await createWorkout();
 
     redirect(Routes.WORKOUTS)
 }
