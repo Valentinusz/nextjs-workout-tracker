@@ -1,12 +1,10 @@
 "use client";
 
-import { Calendar } from "@mantine/dates";
 import { IconArrowLeft, IconArrowRight, IconPlus } from "@tabler/icons-react";
-import { ActionIcon, Button, Select, Tooltip } from "@mantine/core";
-import { first } from "rxjs";
+import { ActionIcon, Tooltip } from "@mantine/core";
 import { useState } from "react";
 import Link from "next/link";
-import {Routes} from "@/routing/routes";
+import {newWorkoutRoute} from "@/routing/routes";
 
 function getDaysInMonth(date: Date) {
   const lastMonthLastDay =
@@ -77,7 +75,7 @@ export function MonthlyProgress() {
             >
               {day}
               <Tooltip label="Add workout" position="bottom">
-                <ActionIcon variant="subtle" component={Link} href={Routes.NEW_WORKOUT}>
+                <ActionIcon variant="subtle" component={Link} href={newWorkoutRoute}>
                   <IconPlus />
                 </ActionIcon>
               </Tooltip>

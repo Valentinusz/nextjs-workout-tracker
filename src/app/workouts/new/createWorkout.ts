@@ -1,13 +1,13 @@
 'use server'
 
 import {redirect} from "next/navigation";
-import {Routes} from "@/routing/routes";
 import {createWorkout} from "@/api/workout-tracker-api";
+import {workoutDetailsRoute} from "@/routing/routes";
 
 export async function createWorkoutAction(): Promise<void> {
     console.log("asd")
 
-    await createWorkout();
+    const {data} = await createWorkout();
 
-    redirect(Routes.WORKOUTS)
+    redirect(workoutDetailsRoute(data.id))
 }

@@ -1,5 +1,4 @@
-export const enum Routes {
-    BASE = "/",
-    WORKOUTS = `${BASE}workouts`,
-    NEW_WORKOUT = `${WORKOUTS}/new`,
-}
+export const baseRoute = "/";
+export const workoutsRoute = `${baseRoute}workouts`;
+export const newWorkoutRoute = `${workoutsRoute}/new`;
+export const workoutDetailsRoute = (workoutId: number) => `${workoutsRoute}/${workoutId}`

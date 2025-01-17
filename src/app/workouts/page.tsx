@@ -1,25 +1,28 @@
-import {ActionIcon, Button, Title} from "@mantine/core";
+import {ActionIcon, Paper, Title, Tooltip} from "@mantine/core";
 import {IconPlus} from "@tabler/icons-react";
 import Link from "next/link";
-import {Routes} from "@/routing/routes";
+import {newWorkoutRoute, workoutDetailsRoute} from "@/routing/routes";
 import {getWorkoutsOfUser} from "@/api/workout-tracker-api";
 
 export default async function Page() {
-    const workouts = await getWorkoutsOfUser("100");
-
-    console.log(workouts)
+    const {data: workouts} = await getWorkoutsOfUser("100");
 
     return (
-        <>
-            <Title>
+        <div className="flex flex-col gap-sm">
+            <Title className="flex gap-sm items-center">
                 My workouts
-                <ActionIcon variant="light" component={Link} href={Routes.NEW_WORKOUT}><IconPlus/></ActionIcon>
+                <Tooltip label="New workout">
+                    <ActionIcon variant="light" component={Link} href={newWorkoutRoute}><IconPlus/></ActionIcon>
+                </Tooltip>
             </Title>
             <Title order={2}>
-                Recent
+                Recent workouts
             </Title>
-        </>
-
-
+            {workouts.map(workout => (
+                <Paper key={workout.id} withBorder component={Link} href={workoutDetailsRoute(workout.id)}>
+                    #{workout.id}
+                </Paper>
+            ))}
+        </div>
     );
 }
