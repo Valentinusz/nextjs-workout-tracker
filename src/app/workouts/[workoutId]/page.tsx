@@ -1,9 +1,19 @@
 import {ActionIcon, Breadcrumbs, Button, Title} from "@mantine/core";
 import {IconLock, IconPlus} from "@tabler/icons-react";
+import {Metadata} from "next";
 
+interface Props {
+    params: Promise<{ workoutId: number }>
+}
 
-export default async function WorkoutDetailsPage({params}: {params: Promise<{ workoutId:number }>}) {
-    const { workoutId } = await params;
+export async function generateMetadata({params}: Props): Promise<Metadata> {
+    return {
+        title: `Workout #${(await params).workoutId}`,
+    }
+}
+
+export default async function WorkoutDetailsPage({params}: Props) {
+    const {workoutId} = await params;
     const sets = [];
 
     return (
