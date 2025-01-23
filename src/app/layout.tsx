@@ -8,7 +8,7 @@ import { AppShell } from "@/components/layout/AppShell/AppShell";
 import { Footer } from "@/components/layout/Footer/Footer";
 import { ModalsProvider } from "@mantine/modals";
 import {Notifications} from "@mantine/notifications";
-import {HeaderContent} from "@/components/layout/HeaderContent/HeaderContent";
+import {HeaderContent} from "@/components/layout/header/HeaderContent";
 
 export type LayoutProps = PropsWithChildren;
 

@@ -1,7 +1,8 @@
-import {Anchor, AppShellHeader, Button} from "@mantine/core";
+import { Button } from "@mantine/core";
 import Link from "next/link";
 import { ColorSchemeToggleButton } from "@/components/theme/ColorSchemeToggleButton";
 import { PropsWithChildren } from "react";
+import {HeaderUserMenu} from "@/components/layout/header/HeaderUserMenu";
 
 export type HeaderProps = PropsWithChildren;
 
@@ -18,8 +19,11 @@ export function HeaderContent({ children }: HeaderProps) {
         Workouts
       </Button>
       <ColorSchemeToggleButton variant="light" className="ml-auto" />
-        <Button variant="light" component={Link} href="/login">Login</Button>
-        <Button variant="light">Register</Button>
+      <Button variant="light" component={Link} href="/login">
+        Login
+      </Button>
+      <Button variant="light">Register</Button>
+        <HeaderUserMenu/>
     </>
   );
 }
