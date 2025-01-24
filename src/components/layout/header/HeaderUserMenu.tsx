@@ -7,8 +7,6 @@ import {
 } from "@mantine/core";
 import {IconChevronRight, IconLogout, IconUser} from "@tabler/icons-react";
 
-export interface HeaderUserMenuProps {}
-
 export function HeaderUserMenu() {
   return (
     <Menu>
@@ -17,7 +15,7 @@ export function HeaderUserMenu() {
           <Avatar />
             <div>
                 <Text>Username</Text>
-                <Text c="dimmed">Admin</Text>
+                <Text c="dimmed" size="sm">Admin</Text>
             </div>
             <IconChevronRight />
         </UnstyledButton>
