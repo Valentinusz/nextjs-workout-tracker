@@ -5,8 +5,10 @@ import { exercisesRoute } from "@/routing/routes";
 import { IconPlus } from "@tabler/icons-react";
 import { SubmitButton } from "@/components/form/SubmitButton";
 import {createExercise} from "@/app/exercises/new/create-exercise";
+import {NewExerciseForm} from "@/components/exercise/NewExerciseForm";
 
 export default function NewExercisePage() {
+
   return (
     <>
       <Breadcrumbs>
@@ -16,12 +18,7 @@ export default function NewExercisePage() {
         <Text>New</Text>
       </Breadcrumbs>
       <Title>New exercise</Title>
-      <form className="flex flex-col gap-md" action={createExercise}>
-        <TextInput label="Name" withAsterisk />
-        <SubmitButton type="submit" leftSection={<IconPlus />} className="mr-auto">
-          Create exercise
-        </SubmitButton>
-      </form>
+      <NewExerciseForm/>
     </>
   );
 }
