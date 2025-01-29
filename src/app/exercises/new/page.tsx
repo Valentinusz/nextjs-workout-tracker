@@ -4,7 +4,7 @@ import { Anchor } from "@mantine/core";
 import { exercisesRoute } from "@/routing/routes";
 import { IconPlus } from "@tabler/icons-react";
 import { SubmitButton } from "@/components/form/SubmitButton";
-import {createExercise} from "@/app/exercises/new/create-exercise";
+import {createExerciseAction} from "@/app/exercises/new/create-exercise.action";
 import {NewExerciseForm} from "@/components/exercise/NewExerciseForm";
 
 export default function NewExercisePage() {

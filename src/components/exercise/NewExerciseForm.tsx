@@ -1,36 +1,32 @@
-'use client'
+"use client";
 
-import { createExercise } from "@/app/exercises/new/create-exercise";
-import { TextInput } from "@mantine/core";
+import { createExerciseAction } from "@/app/exercises/new/create-exercise.action";
 import { SubmitButton } from "@/components/form/SubmitButton";
 import { IconPlus } from "@tabler/icons-react";
-import {useForm} from "react-hook-form";
-import { useFormState } from "react-dom";
-import { useRef } from "react";
+import { FormEvent, useActionState, useCallback, useRef } from "react";
+import { CreateExerciseFormState } from "@/types/CreateExerciseFormState";
+import {Button, TextInput} from "@mantine/core";
+
+const initialState = {
+  errors: {},
+}
 
 export function NewExerciseForm() {
-  //   https://www.youtube.com/watch?v=VLk45JBe8L8
-  const [state, formAction] = useFormState(createExercise, {
-      message: "",
-  });
+  const [state, formAction, pending] = useActionState(createExerciseAction, initialState);
 
-  const form = useForm({
-      defaultValues: {
-          name: ""
-      }
-  });
-
-  const formRef = useRef<HTMLFormElement>(null);
+  console.log(state);
 
   return (
-    <form className="flex flex-col gap-md" ref={formRef}         action={formAction}
-          onSubmit={(evt) => {
-              evt.preventDefault();
-              form.handleSubmit(() => {
-                  formAction(new FormData(formRef.current!));
-              })(evt);
-          }}>
-      <TextInput label="Name" {...form.register("name", {required: "Name is required"})} withAsterisk />
+    <form
+      className="flex flex-col gap-md"
+      action={formAction}
+    >
+      <TextInput
+        label="Name"
+        name="name"
+        error={state?.errors?.name}
+        withAsterisk
+      />
       <SubmitButton
         type="submit"
         leftSection={<IconPlus />}
@@ -38,6 +34,7 @@ export function NewExerciseForm() {
       >
         Create exercise
       </SubmitButton>
+      <Button loading={pending}/>
     </form>
   );
 }
