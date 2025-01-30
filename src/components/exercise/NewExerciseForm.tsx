@@ -3,12 +3,25 @@
 import { createExerciseAction } from "@/app/exercises/new/create-exercise.action";
 import { SubmitButton } from "@/components/form/SubmitButton";
 import { IconPlus } from "@tabler/icons-react";
-import { FormEvent, useActionState, useCallback, useRef } from "react";
-import { CreateExerciseFormState } from "@/types/CreateExerciseFormState";
+import { useActionState } from "react";
 import {Button, TextInput} from "@mantine/core";
 
-const initialState = {
+export interface FormState {
+  errors: {
+    name?: string[];
+  };
+  values: CreateExerciseFormFields;
+}
+
+export interface CreateExerciseFormFields {
+  name: string;
+}
+
+const initialState: FormState = {
   errors: {},
+  values: {
+    name: ""
+  }
 }
 
 export function NewExerciseForm() {
@@ -24,6 +37,7 @@ export function NewExerciseForm() {
       <TextInput
         label="Name"
         name="name"
+        defaultValue={state?.values.name}
         error={state?.errors?.name}
         withAsterisk
       />

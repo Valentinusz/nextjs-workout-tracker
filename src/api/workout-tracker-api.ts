@@ -1,5 +1,5 @@
 import {
-    Configuration,
+    Configuration, ExerciseApiFactory,
     UserWorkoutApi,
     UserWorkoutApiFactory,
     WorkoutApi,
@@ -12,4 +12,4 @@ const configuration = new Configuration({
 
 export const {getWorkout, createWorkout} = WorkoutApiFactory(configuration);
 export const {getWorkoutsOfUser} = UserWorkoutApiFactory(configuration);
-
+export const {getExerciseById, getExercises, createExercise} = ExerciseApiFactory(configuration);
