@@ -1,5 +1,7 @@
 import {Metadata} from "next";
 import {getExerciseById} from "@/api/workout-tracker-api";
+import {redirect} from "next/navigation";
+import {error404Route} from "@/routing/routes";
 
 export interface ExerciseDetailsPageProps {
     params: Promise<{
@@ -29,6 +31,6 @@ export default async function ExerciseDetailsPage({params}: ExerciseDetailsPageP
 
         return <div>asd</div>
     } catch {
-        return <div>Not found</div>;
+        redirect(error404Route)
     }
 }
