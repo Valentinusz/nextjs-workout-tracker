@@ -4,6 +4,7 @@ import { z } from "zod";
 import {CreateExerciseFormFields} from "@/components/exercise/NewExerciseForm";
 import {createExercise} from "@/api/workout-tracker-api";
 import {redirect} from "next/navigation";
+import {exerciseDetailsRoute} from "@/routing/routes";
 
 const schema = z.object({
   name: z
@@ -30,7 +31,9 @@ export async function createExerciseAction(_: unknown, data: FormData) {
     };
   }
 
-  const response = await createExercise({
-    name: validated.data.name
-  })
+  const {data: responseData} = await createExercise({
+    name: validated.data.name,
+  });
+
+  redirect(exerciseDetailsRoute(responseData.id))
 }

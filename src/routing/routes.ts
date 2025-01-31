@@ -5,4 +5,5 @@ export const workoutsRoute = `${baseRoute}workouts`;
 export const newWorkoutRoute = `${workoutsRoute}/new`;
 export const workoutDetailsRoute = (workoutId: number) => `${workoutsRoute}/${workoutId}`
 export const exercisesRoute = `${baseRoute}exercises`;
+export const exerciseDetailsRoute = (exerciseId: number) => `${exercisesRoute}/${exerciseId}`
 export const newExerciseRoute = `${exercisesRoute}/new`;

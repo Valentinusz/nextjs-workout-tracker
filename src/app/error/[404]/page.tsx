@@ -1,4 +1,4 @@
-import {Anchor, Button, Text, Title} from "@mantine/core";
+import {Anchor, Text, Title} from "@mantine/core";
 import {IconMoodPuzzled} from "@tabler/icons-react";
 import Link from "next/link";
 import {baseRoute} from "@/routing/routes";
