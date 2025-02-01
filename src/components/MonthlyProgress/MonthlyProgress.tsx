@@ -3,8 +3,6 @@
 import { IconArrowLeft, IconArrowRight, IconPlus } from "@tabler/icons-react";
 import { ActionIcon, Tooltip } from "@mantine/core";
 import { useState } from "react";
-import Link from "next/link";
-import {newWorkoutRoute} from "@/routing/routes";
 
 function getDaysInMonth(date: Date) {
   const lastMonthLastDay =
@@ -75,7 +73,7 @@ export function MonthlyProgress() {
             >
               {day}
               <Tooltip label="Add workout" position="bottom">
-                <ActionIcon variant="subtle" component={Link} href={newWorkoutRoute}>
+                <ActionIcon variant="subtle">
                   <IconPlus />
                 </ActionIcon>
               </Tooltip>
